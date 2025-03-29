@@ -15,6 +15,17 @@ const words = {
     "Eddy": { answer: "Mafia", rarity: "Epic", weight: 2 },
     "Junteng": { answer: "Indian", rarity: "Epic", weight: 2 },
     "Jeff": { answer: "Fatty Acid", rarity: "Mythic", weight: 4 },
+    "Jeff Lai": { answer: "Oil Up", rarity: "Common", weight: 1 },
+    "Ejaculating Ethan": { answer: "Administrator", rarity: "Mythic", weight: 4 },
+    "Aeryn": { answer: "Galvin", rarity: "Epic", weight: 2 },
+    "Javier": { answer: "5 Big Mac", rarity: "Common", weight: 1 },
+    "Iris": { answer: "eyes", rarity: "Common", weight: 1 },
+    "Albert Kong": { answer: "Hok", rarity: "Common", weight: 1 },
+    "Hibernation NHLin": { answer: "Sleep", rarity: "Common", weight: 1 },
+    "Fredrick": { answer: "CHZ", rarity: "Common", weight: 1 },
+    "Galvin Rizz": { answer: "Aeryn", rarity: "Common", weight: 1 },
+    "Eddy Ng": { answer: "Diddy", rarity: "Epic", weight: 2 },
+    "Albert Pung": { answer: "BGyat+", rarity: "Mythic", weight: 4 },
 };
 
 const rarityWeights = {
