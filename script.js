@@ -26,13 +26,26 @@ const words = {
     "Galvin Rizz": { answer: "Aeryn", rarity: "Common", weight: 1 },
     "Eddy Ng": { answer: "Diddy", rarity: "Epic", weight: 2 },
     "Albert Pung": { answer: "BGyat+", rarity: "Mythic", weight: 4 },
+    "Rage BSK": { answer: "male", rarity: "Mythic", weight: 4 },
+    "Jeff Stone Henge": { answer: "huh", rarity: "Secret", weight: 5 },
+    "CHZ's mom": { answer: "The main factor", rarity: "Secret", weight: 5 },
+    "Secret": { answer: "Godly", rarity: "Common", weight: 1 },
+    "Ethanol": { answer: "Boom", rarity: "Godly", weight: 5 },
+    "Frustrated Jeff": { answer: "BRO", rarity: "Godly", weight: 5 },
+    "Frustrated CHZ": { answer: "RM400", rarity: "Mythic", weight: 4 },
+    "Structure": { answer: "Ambient", rarity: "Secret", weight: 5 },
+    "KJTanime": { answer: "Furry", rarity: "Mythic", weight: 4 },
+    "Eddy Ng": { answer: "Lose is Win", rarity: "Common", weight: 1 },
+    "Argentina": { answer: "NHLin", rarity: "Epic", weight: 2 },
 };
 
 const rarityWeights = {
     "Common": 50,
     "Epic": 30,
-    "Legendary": 8.5,
-    "Mythic": 1.5,
+    "Legendary": 10.5,
+    "Mythic": 2.5,
+    "Godly": 1.75,
+    "Secret": 0.75,
 };
 
 let currentWord;
@@ -43,10 +56,9 @@ let highestStreak = 0;
 let timeLeft = 10;
 let timerInterval;
 
-const sound = new Audio("backgroundMusic.mp3");
-sound.loop = true;
-sound.play();
-startGame();
+const backgroundMusic = new Audio("backgroundMusic.mp3");
+backgroundMusic.loop = true;
+backgroundMusic.play();
 
 function startGame() {
     const rarity = getRandomRarity();
@@ -137,6 +149,8 @@ function checkAnswer(selectedOption) {
             "Epic": 2,
             "Legendary": 3,
             "Mythic": 4,
+            "Godly": 6,
+            "Secret": 8
         };
 
         score += rarityScore[words[currentWord].rarity];
