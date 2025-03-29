@@ -14,5 +14,8 @@ document.addEventListener('keydown', (event) => {
     if ((event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J')) || 
         (event.ctrlKey && event.key === 'U')) {
         event.preventDefault();
+
+        // Redirect to a custom page
+        window.location.href = "blocked.html";
     }
 });
