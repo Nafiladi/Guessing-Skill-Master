@@ -1,13 +1,20 @@
 const words = {
-    "NHLin": "Skibidi",
-    "BSK": "Fenum tax",
-    "Darren": "Ohio",
-    "Hao Zhe": "mogged",
-    "Steve": "Fanum tax",
-    "Jaden": "Sigma",
-    "Albert chin": "Gyatt",
-    "Noah": "POV",
-    "Galvin": "rizz"
+    "NHLin": { answer: "Skibidi", rarity: "Legendary" },
+    "BSK": { answer: "Fenum tax", rarity: "Legendary" },
+    "Darren": { answer: "Ohio", rarity: "Legendary" },
+    "Hao Zhe": { answer: "mogged", rarity: "Legendary" },
+    "Steve": { answer: "Fanum tax", rarity: "Legendary" },
+    "Jaden": { answer: "Sigma", rarity: "Legendary" },
+    "Albert chin": { answer: "Gyatt", rarity: "Legendary" },
+    "Noah": { answer: "POV", rarity: "Legendary" },
+    "Galvin": { answer: "rizz", rarity: "Legendary" },
+    "Nevin": { answer: "Ling-gang-gu", rarity: "Common" },
+    "Jorgina": { answer: "gorilla", rarity: "Epic" },
+    "Vivien": { answer: "Forgiveness", rarity: "Epic" },
+    "Yanxi": { answer: "moaning master", rarity: "Epic" },
+    "Eddy": { answer: "Mafia", rarity: "Epic" },
+    "Junteng": { answer: "Indian", rarity: "Epic" },
+    "Jeff": { answer: "Fatty Acid", rarity: "Mythic" },
 };
 
 let currentWord;
@@ -15,7 +22,7 @@ let correctAnswer;
 let score = 0;
 let streak = 0;
 let highestStreak = 0;
-let timeLeft = 10; 
+let timeLeft = 10;
 let timerInterval;
 
 const backgroundMusic = new Audio("backgroundMusic.mp3");
@@ -25,7 +32,7 @@ backgroundMusic.play();
 function startGame() {
     const wordKeys = Object.keys(words);
     currentWord = wordKeys[Math.floor(Math.random() * wordKeys.length)];
-    correctAnswer = words[currentWord];
+    correctAnswer = words[currentWord].answer;
 
     document.getElementById("word").textContent = currentWord;
 
@@ -34,7 +41,8 @@ function startGame() {
 
     const options = [correctAnswer];
     while (options.length < 4) {
-        const randomOption = Object.values(words)[Math.floor(Math.random() * Object.values(words).length)];
+        const randomWord = wordKeys[Math.floor(Math.random() * wordKeys.length)];
+        const randomOption = words[randomWord].answer;
         if (!options.includes(randomOption)) {
             options.push(randomOption);
         }
@@ -63,7 +71,7 @@ function startTimer() {
         updateTimerDisplay();
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            checkAnswer(null); 
+            checkAnswer(null);
         }
     }, 1000);
 }
@@ -73,7 +81,7 @@ function updateTimerDisplay() {
 }
 
 function checkAnswer(selectedOption) {
-    clearInterval(timerInterval); 
+    clearInterval(timerInterval);
     const resultDiv = document.getElementById("result");
     const scoreDiv = document.getElementById("score");
     const streakDiv = document.getElementById("streak");
