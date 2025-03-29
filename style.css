@@ -20,7 +20,7 @@ body {
 
 #word {
     font-size: 2.5em;
-    margin-bottom: 5px; /* 减少词汇和稀有度之间的间距 */
+    margin-bottom: 5px; 
     color: #007bff;
     font-weight: bold;
 }
@@ -32,19 +32,19 @@ body {
 }
 
 #rarity.common {
-    color: #888; /* 灰色 */
+    color: #888; 
 }
 
 #rarity.epic {
-    color: #800080; /* 紫色 */
+    color: #800080; 
 }
 
 #rarity.legendary {
-    color: #ffa500; /* 橙色 */
+    color: #ffa500; 
 }
 
 #rarity.mythic {
-    color: #ff0000; /* 红色 */
+    color: #ff0000; 
 }
 
 #options {
