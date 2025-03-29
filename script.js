@@ -12,7 +12,7 @@ const words = {
     "Jorgina": { answer: "gorilla", rarity: "Epic" },
     "Vivien": { answer: "Forgiveness", rarity: "Epic" },
     "Yanxi": { answer: "moaning master", rarity: "Epic" },
-    "Eddy": { answer: "Learner", rarity: "Epic" },
+    "Eddy": { answer: "Mafia", rarity: "Epic" },
     "Junteng": { answer: "Indian", rarity: "Epic" },
     "Jeff": { answer: "Fatty Acid", rarity: "Mythic" },
 };
@@ -33,8 +33,11 @@ function startGame() {
     const wordKeys = Object.keys(words);
     currentWord = wordKeys[Math.floor(Math.random() * wordKeys.length)];
     correctAnswer = words[currentWord].answer;
+    const currentRarity = words[currentWord].rarity;
 
     document.getElementById("word").textContent = currentWord;
+    document.getElementById("rarity").textContent = currentRarity;
+    document.getElementById("rarity").className = currentRarity; // 设置稀有度元素的类名
 
     const optionsDiv = document.getElementById("options");
     optionsDiv.innerHTML = "";

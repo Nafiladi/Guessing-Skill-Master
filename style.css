@@ -20,9 +20,31 @@ body {
 
 #word {
     font-size: 2.5em;
-    margin-bottom: 30px;
+    margin-bottom: 5px; 
     color: #007bff;
     font-weight: bold;
+}
+
+#rarity {
+    font-size: 1em;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+#rarity.common {
+    color: #888; 
+}
+
+#rarity.epic {
+    color: #800080; 
+}
+
+#rarity.legendary {
+    color: #ffa500; 
+}
+
+#rarity.mythic {
+    color: #ff0000; 
 }
 
 #options {
