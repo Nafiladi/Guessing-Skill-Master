@@ -12,7 +12,7 @@ const words = {
     "Jorgina": { answer: "gorilla", rarity: "Epic" },
     "Vivien": { answer: "Forgiveness", rarity: "Epic" },
     "Yanxi": { answer: "moaning master", rarity: "Epic" },
-    "Eddy": { answer: "Mafia", rarity: "Epic" },
+    "Eddy": { answer: "Learner", rarity: "Epic" },
     "Junteng": { answer: "Indian", rarity: "Epic" },
     "Jeff": { answer: "Fatty Acid", rarity: "Mythic" },
 };
