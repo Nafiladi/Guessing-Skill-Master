@@ -43,9 +43,9 @@ let highestStreak = 0;
 let timeLeft = 10;
 let timerInterval;
 
-const backgroundMusic = new Audio("backgroundMusic.mp3");
-backgroundMusic.loop = true;
-backgroundMusic.play();
+const sound = new Audio("backgroundMusic.mp3");
+sound.loop = true;
+sound.play();
 
 function startGame() {
     const rarity = getRandomRarity();
