@@ -1,20 +1,27 @@
 const words = {
-    "NHLin": { answer: "Skibidi", rarity: "Legendary" },
-    "BSK": { answer: "Fenum tax", rarity: "Legendary" },
-    "Darren": { answer: "Ohio", rarity: "Legendary" },
-    "Hao Zhe": { answer: "mogged", rarity: "Legendary" },
-    "Steve": { answer: "Fanum tax", rarity: "Legendary" },
-    "Jaden": { answer: "Sigma", rarity: "Legendary" },
-    "Albert chin": { answer: "Gyatt", rarity: "Legendary" },
-    "Noah": { answer: "POV", rarity: "Legendary" },
-    "Galvin": { answer: "rizz", rarity: "Legendary" },
-    "Nevin": { answer: "Ling-gang-gu", rarity: "Common" },
-    "Jorgina": { answer: "gorilla", rarity: "Epic" },
-    "Vivien": { answer: "Forgiveness", rarity: "Epic" },
-    "Yanxi": { answer: "moaning master", rarity: "Epic" },
-    "Eddy": { answer: "Mafia", rarity: "Epic" },
-    "Junteng": { answer: "Indian", rarity: "Epic" },
-    "Jeff": { answer: "Fatty Acid", rarity: "Mythic" },
+    "NHLin": { answer: "Skibidi", rarity: "Legendary", weight: 3 },
+    "BSK": { answer: "Fenum tax", rarity: "Legendary", weight: 3 },
+    "Darren": { answer: "Ohio", rarity: "Legendary", weight: 3 },
+    "Hao Zhe": { answer: "mogged", rarity: "Legendary", weight: 3 },
+    "Steve": { answer: "Fanum tax", rarity: "Legendary", weight: 3 },
+    "Jaden": { answer: "Sigma", rarity: "Legendary", weight: 3 },
+    "Albert chin": { answer: "Gyatt", rarity: "Legendary", weight: 3 },
+    "Noah": { answer: "POV", rarity: "Legendary", weight: 3 },
+    "Galvin": { answer: "rizz", rarity: "Legendary", weight: 3 },
+    "Nevin": { answer: "Ling-gang-gu", rarity: "Common", weight: 1 },
+    "Jorgina": { answer: "gorilla", rarity: "Epic", weight: 2 },
+    "Vivien": { answer: "Forgiveness", rarity: "Epic", weight: 2 },
+    "Yanxi": { answer: "moaning master", rarity: "Epic", weight: 2 },
+    "Eddy": { answer: "Mafia", rarity: "Epic", weight: 2 },
+    "Junteng": { answer: "Indian", rarity: "Epic", weight: 2 },
+    "Jeff": { answer: "Fatty Acid", rarity: "Mythic", weight: 4 },
+};
+
+const rarityWeights = {
+    "Common": 60,
+    "Epic": 20,
+    "Legendary": 8.5,
+    "Mythic": 1.5,
 };
 
 let currentWord;
@@ -30,21 +37,23 @@ backgroundMusic.loop = true;
 backgroundMusic.play();
 
 function startGame() {
-    const wordKeys = Object.keys(words);
-    currentWord = wordKeys[Math.floor(Math.random() * wordKeys.length)];
+    const rarity = getRandomRarity();
+    const availableWords = Object.entries(words).filter(([_, word]) => word.rarity === rarity);
+    const randomWord = availableWords[Math.floor(Math.random() * availableWords.length)][0];
+    currentWord = randomWord;
     correctAnswer = words[currentWord].answer;
     const currentRarity = words[currentWord].rarity;
 
     document.getElementById("word").textContent = currentWord;
     document.getElementById("rarity").textContent = currentRarity;
-    document.getElementById("rarity").className = currentRarity; // 设置稀有度元素的类名
+    document.getElementById("rarity").className = currentRarity;
 
     const optionsDiv = document.getElementById("options");
     optionsDiv.innerHTML = "";
 
     const options = [correctAnswer];
     while (options.length < 4) {
-        const randomWord = wordKeys[Math.floor(Math.random() * wordKeys.length)];
+        const randomWord = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)];
         const randomOption = words[randomWord].answer;
         if (!options.includes(randomOption)) {
             options.push(randomOption);
@@ -63,6 +72,19 @@ function startGame() {
 
     document.getElementById("play-again").style.display = "none";
     startTimer();
+}
+
+function getRandomRarity() {
+    const totalWeight = Object.values(rarityWeights).reduce((a, b) => a + b, 0);
+    let randomNum = Math.random() * totalWeight;
+    let cumulativeWeight = 0;
+
+    for (const rarity in rarityWeights) {
+        cumulativeWeight += rarityWeights[rarity];
+        if (randomNum < cumulativeWeight) {
+            return rarity;
+        }
+    }
 }
 
 function startTimer() {
@@ -92,12 +114,20 @@ function checkAnswer(selectedOption) {
 
     if (selectedOption === correctAnswer) {
         resultDiv.textContent = "Correct!";
-        score++;
         streak++;
 
         if (streak > highestStreak) {
             highestStreak = streak;
         }
+
+        const rarityScore = {
+            "Common": 1,
+            "Epic": 2,
+            "Legendary": 3,
+            "Mythic": 4,
+        };
+
+        score += rarityScore[words[currentWord].rarity];
 
         const sound = new Audio(correctAnswer + ".mp3");
         sound.play();
@@ -107,6 +137,7 @@ function checkAnswer(selectedOption) {
         streak = 0;
         document.getElementById("play-again").style.display = "block";
     }
+
     scoreDiv.textContent = "Score: " + score;
     streakDiv.textContent = "Streak: " + streak;
     highestStreakDiv.textContent = "Highest Streak: " + highestStreak;
