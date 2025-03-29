@@ -46,6 +46,7 @@ let timerInterval;
 const sound = new Audio("backgroundMusic.mp3");
 sound.loop = true;
 sound.play();
+startGame();
 
 function startGame() {
     const rarity = getRandomRarity();
