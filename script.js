@@ -12,7 +12,7 @@ const words = {
     "Jorgina": { answer: "gorilla", rarity: "Epic", weight: 2 },
     "Vivien": { answer: "Forgiveness", rarity: "Epic", weight: 2 },
     "Yanxi": { answer: "moaning master", rarity: "Epic", weight: 2 },
-    "Eddy": { answer: "Mafia", rarity: "Epic", weight: 2 },
+    "Eddy": { answer: "Learner", rarity: "Epic", weight: 2 },
     "Junteng": { answer: "Indian", rarity: "Epic", weight: 2 },
     "Jeff": { answer: "Fatty Acid", rarity: "Mythic", weight: 4 },
     "Jeff Lai": { answer: "Oil Up", rarity: "Common", weight: 1 },
