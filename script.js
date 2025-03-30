@@ -12,7 +12,7 @@ const words = {
     "Jorgina": { answer: "gorilla", rarity: "Epic", weight: 2 },
     "Vivien": { answer: "Forgiveness", rarity: "Epic", weight: 2 },
     "Yanxi": { answer: "moaning master", rarity: "Epic", weight: 2 },
-    "Eddy": { answer: "Learner", rarity: "Epic", weight: 2 },
+    "Eddy": { answer: "Mafia", rarity: "Epic", weight: 2 },
     "Junteng": { answer: "Indian", rarity: "Epic", weight: 2 },
     "Jeff": { answer: "Fatty Acid", rarity: "Mythic", weight: 4 },
     "Jeff Lai": { answer: "Oil Up", rarity: "Common", weight: 1 },
@@ -27,7 +27,7 @@ const words = {
     "Eddy Ng": { answer: "Diddy", rarity: "Epic", weight: 2 },
     "Albert Pung": { answer: "BGyat+", rarity: "Mythic", weight: 4 },
     "Rage BSK": { answer: "male", rarity: "Mythic", weight: 4 },
-    "Jeff Stone Henge": { answer: "huh", rarity: "Secret", weight: 5 },
+    "Jeff Stone Henge": { answer: "???", rarity: "Secret", weight: 5 },
     "CHZ's mom": { answer: "The main factor", rarity: "Secret", weight: 5 },
     "Secret": { answer: "Godly", rarity: "Common", weight: 1 },
     "Ethanol": { answer: "Boom", rarity: "Godly", weight: 5 },
@@ -37,15 +37,25 @@ const words = {
     "KJTanime": { answer: "Furry", rarity: "Mythic", weight: 4 },
     "Eddy Ng": { answer: "Lose is Win", rarity: "Common", weight: 1 },
     "Argentina": { answer: "NHLin", rarity: "Epic", weight: 2 },
+    "Adolf CHZ": {answer: "Erika", rarity: "Common", weight: 1},
+    "NevinLee" : {answer : "Jerkmate", rarity: "Common", weight: 1},
+    "Albert Rang" : {answer: "Glycerol", rarity: "Rare", weight: 1.75},
+    "PKBSK" : {answer: "Amino acid", rarity: "Epic", weight: 2},
+    "Jeffrey Bozos" : {answer: "Glucose", rarity: "Common", weight: 1},
+    "Noah Chin" : {answer: "not my lover", rarity: "Rare", weight: 1.75},
+    "NevinLegacy" : {answer: "Arminous", rarity: "Epic", weight: 2},
+    "Pretentiousness Steve" : {answer: "No Ball", rarity: "Legendary", weight: 3},
+    "Darren Tien" : {answer: "Mathematic", rarity: "Rare", weight: 1.75},
+    "Bio Zhe" : {answer: "Bioengineering", rarity: "Common", weight: 1}
 };
 
 const rarityWeights = {
-    "Common": 50,
-    "Epic": 30,
-    "Legendary": 10.5,
-    "Mythic": 2.5,
-    "Godly": 1.75,
-    "Secret": 0.75,
+    "Common": 60,
+    "Epic": 20,
+    "Legendary": 8.5,
+    "Mythic": 1.5,
+    "Godly": 0.05,
+    "Secret": 0.01
 };
 
 let currentWord;
