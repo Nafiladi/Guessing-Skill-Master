@@ -50,12 +50,12 @@ const words = {
 };
 
 const rarityWeights = {
-    "Common": 60,
+    "Common": 70,
     "Epic": 20,
-    "Legendary": 8.5,
+    "Legendary": 7.5,
     "Mythic": 1.5,
-    "Godly": 0.05,
-    "Secret": 0.01
+    "Godly": 0.5,
+    "Secret": 0.1
 };
 
 let currentWord;
