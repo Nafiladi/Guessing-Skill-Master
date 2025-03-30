@@ -68,7 +68,13 @@ let timerInterval;
 
 const backgroundMusic = new Audio("backgroundMusic.mp3");
 backgroundMusic.loop = true;
-backgroundMusic.play();
+
+
+document.addEventListener("click", () => {
+    backgroundMusic.play().catch((error) => {
+        console.error("Error playing background music:", error);
+    });
+}, { once: true }); 
 
 function startGame() {
     const rarity = getRandomRarity();
@@ -86,7 +92,7 @@ function startGame() {
     optionsDiv.innerHTML = "";
 
     const options = [correctAnswer];
-    while (options.length < 4) {
+    while (options.length < 5) {
         const randomWord = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)];
         const randomOption = words[randomWord].answer;
         if (!options.includes(randomOption)) {
