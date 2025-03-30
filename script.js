@@ -92,7 +92,7 @@ function startGame() {
     optionsDiv.innerHTML = "";
 
     const options = [correctAnswer];
-    while (options.length < 3) {
+    while (options.length < 4) {
         const randomWord = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)];
         const randomOption = words[randomWord].answer;
         if (!options.includes(randomOption)) {
